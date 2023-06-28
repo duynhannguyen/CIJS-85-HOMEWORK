@@ -8,10 +8,11 @@
   padding: 50px 0px;
 }
 
-p {margin: 0px;
+p {
+  margin: 0px;
   padding: 0px;
 }
-.wrapper{
+.wrapper {
   max-width: 1000px;
   background-color: rgb(219, 213, 125);
   margin: 0 auto;
@@ -21,14 +22,14 @@ p {margin: 0px;
 }
 /* .search-input{
 } */
-#search-input{
+#search-input {
   height: 40px;
   border-radius: 10px;
   margin-right: 10px;
   margin-bottom: 20px;
 }
 
-.btn-add{
+.btn-add {
   height: 46px;
   width: 100px;
   border-radius: 10px;
@@ -37,7 +38,7 @@ p {margin: 0px;
 }
 /* .todoitem-warpper{
 } */
-.todolist{
+.todolist {
   overflow-y: auto;
   max-height: 300px;
 }
@@ -54,79 +55,85 @@ p {margin: 0px;
   justify-content: space-between;
   align-items: center;
 }
-.tool{
-  display: flex ;
-  padding: 5px;
+.tool {
+  display: flex;
   align-items: center;
+  gap: 20px;
+  position: relative;
 }
-.check-box{
+.check-box {
   /* margin: 0;
   padding: 0; */
-  background-color: inherit;
-
+  /* background-color: inherit; */
 }
-#trash-can{
+#trash-can {
   /* height: 13px;
   width: 13px; */
-  margin: 3px;
+  /* margin: 3px; */
   font-size: 13px;
-
 }
-#edit{
-/* height: 13px;
+#edit {
+  /* height: 13px;
 width: 13px; */
-margin: 3px;
-font-size: 13px;
-
+  /* margin: 3px; */
+  font-size: 13px;
 }
 
-.check-wrapper{
-  padding: 5px;
-  margin-right: 20px;
+.check-wrapper {
+  /* position: relative; */
+  /* padding: 5px; */
+  /* margin-right: 20px; */
 }
-.trash-can-wrapper{
-  padding: 5px;
-  margin-right: 20px;
+.trash-can-wrapper {
+  /* position: relative; */
+  /* padding: 5px; */
+  /* margin-right: 20px; */
 }
-.edit-wrapper{
-  padding: 5px;
-  margin-right: 20px;
+.edit-wrapper {
+  /* position: relative; */
+  /* padding: 5px; */
+  /* margin-right: 20px; */
 }
-.check-wrapper:hover{
+.check-wrapper:hover {
+  position: absolute;
   color: bisque;
   animation: check-box-ani 0.7s ease;
   animation-fill-mode: forwards;
+  z-index: 1;
+  left: 0px;
+  /* transform: translate(50%, 50%); */
 }
-.check-box:checked + todoitem{
+/* .check-box:checked + todoitem {
   background-color: aqua;
   opacity: 0.7;
-}
-.trash-can-wrapper:hover{
+} */
+.trash-can-wrapper:hover {
+  position: absolute;
   color: bisque;
   animation: check-box-ani 0.7s ease;
   animation-fill-mode: forwards;
+  z-index: 1;
 }
-.edit-wrapper:hover{
+.edit-wrapper:hover {
+  position: absolute;
   color: bisque;
   animation: check-box-ani 0.7s ease;
   animation-fill-mode: forwards;
+  z-index: 1;
 }
 @keyframes check-box-ani {
   0% {
     border: 1px solid transparent;
     width: 20px;
     height: 20px;
-      background-color: rgb(117, 108, 96);
-      border-radius: 50%;
-      
+    background-color: rgb(117, 108, 96);
+    border-radius: 50%;
   }
-  100%{
+  100% {
     border: 1px solid transparent;
     width: 20px;
     height: 20px;
     background-color: rgb(117, 108, 96);
-      
-      border-radius: 10px;
-      
+    border-radius: 5px;
   }
 }
