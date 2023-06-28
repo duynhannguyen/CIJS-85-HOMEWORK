@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 const TodoItem = (props) => {
-  const { id, TaskTitle, isCompleted } = props;
-  const [DeleteTodo, setDeleteTodoEle] = useState("");
-  const onDeleteHandler = () => {
-    setDeleteTodoEle(id);
-    props.DeleteId(DeleteTodo);
-  };
+  const { id, TaskTitle, isCompleted, DeleteId, EditId } = props;
+  // const [DeleteTodo, setDeleteTodoEle] = useState("");
+  // const onDeleteHandler = (id) => {
+  //   setDeleteTodoEle(id);
+  //   DeleteId(id);
+  // };
 
   return (
     <div id={id} className="todoitem">
@@ -23,11 +23,12 @@ const TodoItem = (props) => {
           <i
             id="trash-can"
             className="fa-solid fa-trash-can"
-            onClick={onDeleteHandler}
+            onClick={() => DeleteId(id)}
+            // onDeleteHandler(id)
           ></i>
         </div>
         <div className="edit-wrapper">
-          <i id="edit" className="fa-solid fa-pen-to-square"></i>
+          <i id="edit" className="fa-solid fa-pen-to-square" onClick={() => EditId(id)} ></i>
         </div>
       </p>
     </div>

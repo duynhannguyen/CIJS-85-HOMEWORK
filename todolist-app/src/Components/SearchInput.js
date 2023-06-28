@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 const SearchInput = (props) => {
+  // const [EditTask  ] = props
   const [NewTaskTitle, setNewTask] = useState("");
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -9,7 +10,7 @@ const SearchInput = (props) => {
       isCompleted: false,
       id: uuidv4(),
     };
-    console.log(NewTask);
+    // console.log(NewTask);
     props.onAddNewTask(NewTask);
     setNewTask("");
   };
