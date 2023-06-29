@@ -78,6 +78,8 @@ p {
 width: 13px; */
   /* margin: 3px; */
   font-size: 13px;
+  cursor: pointer;
+
 }
 
 .check-wrapper {

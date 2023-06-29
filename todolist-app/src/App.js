@@ -30,21 +30,27 @@ function App() {
     //   isCompleted: true,
     // },
   ];
-  const [todoList, setTodoList] = useState(TaskData);
+  const GetTaskTitle = JSON.parse(localStorage.getItem('TaskTitle'))
+  const [todoList, setTodoList] = useState(GetTaskTitle ?? []);
 
   const onAddNewTaskHandler = (NewTask) => {
-    setTodoList([...todoList, NewTask]);
+    const SaveNewTask = [...todoList, NewTask];
+    const StrSaveNewTask = JSON.stringify(SaveNewTask);
+    localStorage.setItem( 'TaskTitle',StrSaveNewTask)
+    setTodoList(SaveNewTask);
   };
   const DeleteEle = (id) => {
     const filterdTaskList = todoList.filter((task) => task.id !== id);
+    
     setTodoList(filterdTaskList);
   };
 
   const EditEle = (id) => {
-    console.log(id);
     const filterEditTaskList = todoList.filter((editTask) => editTask.id === id);
-    setTodoList(filterEditTaskList);
-    
+    const AfterDetele = filterEditTaskList;
+    // const a = localStorage.getItem('id')
+    // console.log(a);
+    // setTodoList(filterEditTaskList);
     
   };
   return (
