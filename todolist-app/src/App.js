@@ -30,34 +30,38 @@ function App() {
     //   isCompleted: true,
     // },
   ];
-  const GetTaskTitle = JSON.parse(localStorage.getItem('TaskTitle'))
+  const GetTaskTitle = JSON.parse(localStorage.getItem("TaskTitle"));
   const [todoList, setTodoList] = useState(GetTaskTitle ?? []);
 
   const onAddNewTaskHandler = (NewTask) => {
     const SaveNewTask = [...todoList, NewTask];
     const StrSaveNewTask = JSON.stringify(SaveNewTask);
-    localStorage.setItem( 'TaskTitle',StrSaveNewTask)
+    localStorage.setItem("TaskTitle", StrSaveNewTask);
     setTodoList(SaveNewTask);
   };
   const DeleteEle = (id) => {
     const filterdTaskList = todoList.filter((task) => task.id !== id);
-    
+
     setTodoList(filterdTaskList);
   };
-
+  const [EditTaskEle, setEditTaskEle] = useState("");
   const EditEle = (id) => {
-    const filterEditTaskList = todoList.filter((editTask) => editTask.id === id);
-    const AfterDetele = filterEditTaskList;
+    const filterEditTaskList = todoList.find((editTask) => editTask.id === id);
+    setEditTaskEle(filterEditTaskList);
+    console.log(EditTaskEle);
+    // const AfterDetele = filterEditTaskList;
+    // setTodoList(filterEditTaskList);
     // const a = localStorage.getItem('id')
     // console.log(a);
-    // setTodoList(filterEditTaskList);
-    
   };
   return (
     <div className="App">
       <div className="wrapper">
-        <SearchInput onAddNewTask={onAddNewTaskHandler} EditTask = {todoList} />
-        <TodolList data={todoList} DeleteId={DeleteEle} EditId = {EditEle} />
+        <SearchInput
+          onAddNewTask={onAddNewTaskHandler}
+          EditTaskEle={EditTaskEle}
+        />
+        <TodolList data={todoList} DeleteId={DeleteEle} EditId={EditEle} />
         {/* <DeleteAllTask Delete = {onDeleteTaskHandler}/> */}
         {/* <button className="delete-btn" onClick={onDeleteTaskHandler}>Delete All </button> */}
       </div>
