@@ -33,8 +33,8 @@ function App() {
   ]
   return (
     <div className="App">
-      {/* <StudentTable studentName = {studentData.studentName} studentClass = {studentData.studentClass} math = {studentData.math} chem = {studentData.chem} phy = {studentData.phy}/> */}
-      <StudentTable studentName = {studentData} />
+      <h1> Dự Án Quản Lí Học Sinh </h1>
+      <StudentTable studentData = {studentData} />
     </div>
   );
 }
