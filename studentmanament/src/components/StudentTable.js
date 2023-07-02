@@ -1,10 +1,11 @@
 import StudentRow from "./StudentRow"
+import AddNewStudent from "./AddNewStudent"
 const StudentTable = (props) => {
-    const {studentData=[] } = props
-    console.log(studentData);
-    const studentList = studentData &&studentData.map((student) => <StudentRow {...student}/>)
+    const {studentDataEle=[] , newStudentData } = props
+    const studentList = studentDataEle &&studentDataEle.map((student , index) => <StudentRow {...student} index={index} />)
     return (
         <div className = "student-table">
+          <AddNewStudent newStudent = {newStudentData} />
              <table className="table">
   <thead>
     <tr>
