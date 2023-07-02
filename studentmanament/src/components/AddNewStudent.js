@@ -99,6 +99,7 @@ const AddNewStudent = (props) => {
         </button>
       </div>
     </form>
+    
   );
 };
 export default AddNewStudent;

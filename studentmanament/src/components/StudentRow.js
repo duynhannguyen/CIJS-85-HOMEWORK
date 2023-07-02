@@ -1,5 +1,5 @@
 const StudentRow  = (props) => {
-  const {studentName, studentClass, math, chem, phy, index} = props
+  const {studentName, studentClass, math, chem, phy, index,deleteStudentEle,id } = props
   const gpa = ((+math + +phy + +chem)/3).toFixed(1);
   const order = index +1 ;
     return(
@@ -11,6 +11,7 @@ const StudentRow  = (props) => {
       <td>{phy}</td>
       <td>{chem}</td>
       <td>{gpa}</td> 
+      <td> <button className="btn btn-danger" onClick={ () => deleteStudentEle(id)} >Xóa</button></td>
     </tr>
     )
 }

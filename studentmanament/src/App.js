@@ -42,10 +42,14 @@ function App() {
     const studentEle = {...addNewStudent, id: uuidv4(),}
     setNewStudent([...NewStudenEle , studentEle]);
   }
+  const deleteStudent = (id) => {
+    const filterDeleteStudent = NewStudenEle.filter((deleteStudent) => deleteStudent.id !== id )
+    setNewStudent(filterDeleteStudent);
+  }
   return (
     <div className="App">
       <h1> Dự Án Quản Lí Học Sinh </h1>
-      <StudentTable studentDataEle = {NewStudenEle} newStudentData = {newStudentData} />
+      <StudentTable studentDataEle = {NewStudenEle} newStudentData = {newStudentData} deleteStudent = {deleteStudent} />
     </div>
   );
 }
