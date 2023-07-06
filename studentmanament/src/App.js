@@ -41,10 +41,14 @@ function App() {
   const newStudentData = (addNewStudent) => {
     const studentEle = {...addNewStudent, id: uuidv4(),}
     setNewStudent([...NewStudenEle , studentEle]);
+    
   }
   const deleteStudent = (id) => {
     const filterDeleteStudent = NewStudenEle.filter((deleteStudent) => deleteStudent.id !== id )
     setNewStudent(filterDeleteStudent);
+  }
+  const setState = (NewStudenEle) => {
+    const a = [...NewStudenEle];
   }
   return (
     <div className="App">
