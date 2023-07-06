@@ -1,12 +1,12 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.App{
+.App {
   text-align: center;
 }
-.student-table{
+.student-table {
   margin-top: 100px;
 }
 .filter-option{
