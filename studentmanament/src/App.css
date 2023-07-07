@@ -9,10 +9,6 @@
 .student-table {
   margin-top: 100px;
 }
-.sort-container {
-  width: 200px;
-}
-.form-select {
-  text-align: center;
-  align-items: end;
+.filter-option{
+  width: 200px ;
 }
