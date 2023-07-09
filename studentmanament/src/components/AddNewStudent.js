@@ -1,30 +1,33 @@
 import { useState } from "react";
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 
+const defaultValue = {
+  id: "",
+  studentName: "",
+  studentClass: "",
+  math: "",
+  chem: "",
+  phy: "",
+};
 const AddNewStudent = (props) => {
-    const {newStudent} = props
-  const defaultValue = {
-    id:"",
-    studentName: "",
-    studentClass: "",
-    math: "",
-    chem: "",
-    phy: "",
-  };
+  const { newStudent, editStudentEle } = props;
   const [addNewStudent, setAddNewStudent] = useState(defaultValue);
+  const [formMode, setFormMode] = useState("")
   const onChangeHandler = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setAddNewStudent({
-       ...addNewStudent,
+      ...addNewStudent,
       [name]: value,
     });
   };
   const onSubmitHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     newStudent(addNewStudent);
     setAddNewStudent(defaultValue);
-
-  }
+  };
+  const updateStudentEle = (id) => {
+    console.log(id);
+  };
   return (
     <form className="row g-3" onSubmit={onSubmitHandler}>
       <div className="col-md-4">
@@ -99,7 +102,6 @@ const AddNewStudent = (props) => {
         </button>
       </div>
     </form>
-    
   );
 };
 export default AddNewStudent;

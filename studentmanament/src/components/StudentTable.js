@@ -29,7 +29,8 @@ const StudentTable = (props) => {
   const SortStudent = (e) => {
     setSortOption(e.target.value);
   };
-  const sortedStudent = (sortOption, studentTable) => {
+  const sortedStudent = ( studentTable, sortOption ) => {
+    
     let sortedStudentData = [...studentTable];
     switch (+sortOption) {
       case FILTER_OPTIONS.GPA_ASCENDING:
@@ -58,19 +59,26 @@ const StudentTable = (props) => {
         break;
       case FILTER_OPTIONS.DEFAULT:
       default:
-        return studentTable;
+        console.log("studentTable" , studentTable)
+        return sortedStudentData;
     }
     return sortedStudentData;
   };
-  const value = sortedStudent(sortOption, studentTable);
+  const value = sortedStudent(studentTable ,sortOption );
+  console.log("vlaue", value);
+  const editStudentEle = (id) => {
+    console.log(id);
+  }
   const studentList =
-    studentTable &&
-    studentTable.map((student, index) => (
-      <StudentRow {...student} index={index} deleteStudentEle={deleteStudent} />
+  value &&
+  value.map((student, index) => (
+      <StudentRow {...student} index={index} deleteStudentEle={deleteStudent} editStudentEle={editStudentEle}   />
     ));
+
+
   return (
     <div className="student-table">
-      <AddNewStudent newStudent={newStudentData} />
+      <AddNewStudent newStudent={newStudentData} editStudentEle={editStudentEle} />
       <div className="sort-container">
         <select
           className="form-select"
