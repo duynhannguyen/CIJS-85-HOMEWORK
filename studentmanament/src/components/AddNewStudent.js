@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const defaultValue = {
@@ -12,7 +12,19 @@ const defaultValue = {
 const AddNewStudent = (props) => {
   const { newStudent, editStudentEle } = props;
   const [addNewStudent, setAddNewStudent] = useState(defaultValue);
-  const [formMode, setFormMode] = useState("")
+  const [formMode, setFormMode] = useState("");
+  useEffect(() => {
+    const hasEditValue =
+      editStudentEle.studentName &&
+      editStudentEle.studentClass &&
+      editStudentEle.math &&
+      editStudentEle.chem &&
+      editStudentEle.phy;
+      if(hasEditValue){
+        setFormMode("Edit")
+        setAddNewStudent({...editStudentEle})
+      }
+  },[editStudentEle] );
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
     setAddNewStudent({
@@ -25,8 +37,8 @@ const AddNewStudent = (props) => {
     newStudent(addNewStudent);
     setAddNewStudent(defaultValue);
   };
-  const updateStudentEle = (id) => {
-    console.log(id);
+  const updateStudentEle = (editStudentEle) => {
+    setAddNewStudent(editStudentEle);
   };
   return (
     <form className="row g-3" onSubmit={onSubmitHandler}>
@@ -98,7 +110,7 @@ const AddNewStudent = (props) => {
 
       <div className="col-12">
         <button className="btn btn-primary" type="submit">
-          Thêm mới học sinh
+          {formMode === "Edit" ? "Cập nhật" : "Thêm mới học sinh"}
         </button>
       </div>
     </form>

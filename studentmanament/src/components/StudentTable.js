@@ -7,6 +7,7 @@ const StudentTable = (props) => {
   const [sortOption, setSortOption] = useState(FILTER_OPTIONS.DEFAULT);
   const { studentDataEle = [] } = props;
   const [studentTable, setStudentTable] = useState(studentDataEle);
+  const [editingStudent , setEditingStudent] = useState({});
   const newStudentData = (addNewStudent) => {
     const studentEle = { ...addNewStudent, id: uuidv4() };
     setStudentTable([...studentTable, studentEle]);
@@ -65,10 +66,12 @@ const StudentTable = (props) => {
     return sortedStudentData;
   };
   const value = sortedStudent(studentTable ,sortOption );
-  console.log("vlaue", value);
-  const editStudentEle = (id) => {
-    console.log(id);
+  const editStudentEle = (id) =>{
+    const editEle = value.find((student) => student.id === id  )
+    console.log(editEle)
+    setEditingStudent(editEle)
   }
+  // const changeFormMode = () => {}
   const studentList =
   value &&
   value.map((student, index) => (
@@ -78,7 +81,7 @@ const StudentTable = (props) => {
 
   return (
     <div className="student-table">
-      <AddNewStudent newStudent={newStudentData} editStudentEle={editStudentEle} />
+      <AddNewStudent newStudent={newStudentData} editStudentEle={editingStudent} />
       <div className="sort-container">
         <select
           className="form-select"
