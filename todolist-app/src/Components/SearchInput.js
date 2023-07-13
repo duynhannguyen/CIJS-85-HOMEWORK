@@ -28,8 +28,7 @@ const SearchInput = (props) => {
         onChange={onChangeHandler}
       ></input>
       <button type="submit" className="btn-add">
-        {" "}
-        Add{" "}
+        Add
       </button>
     </form>
   );

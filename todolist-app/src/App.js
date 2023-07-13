@@ -40,8 +40,7 @@ function App() {
     setTodoList(SaveNewTask);
   };
   const DeleteEle = (id) => {
-    const filterdTaskList = todoList.filter((task) => task.id !== id);
-
+    const filterdTaskList = todoList.filter((task) => task.id !== id); 
     setTodoList(filterdTaskList);
   };
   const [EditTaskEle, setEditTaskEle] = useState("");
