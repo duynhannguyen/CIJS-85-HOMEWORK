@@ -7,7 +7,7 @@ const StudentTable = (props) => {
   const [sortOption, setSortOption] = useState(FILTER_OPTIONS.DEFAULT);
   const { studentDataEle = [] } = props;
   const [studentTable, setStudentTable] = useState(studentDataEle);
-  const [editingStudent , setEditingStudent] = useState({});
+  const [editingStudent, setEditingStudent] = useState({});
   const newStudentData = (addNewStudent) => {
     const studentEle = { ...addNewStudent, id: uuidv4() };
     setStudentTable([...studentTable, studentEle]);
@@ -30,8 +30,7 @@ const StudentTable = (props) => {
   const SortStudent = (e) => {
     setSortOption(e.target.value);
   };
-  const sortedStudent = ( studentTable, sortOption ) => {
-    
+  const sortedStudent = (studentTable, sortOption) => {
     let sortedStudentData = [...studentTable];
     switch (+sortOption) {
       case FILTER_OPTIONS.GPA_ASCENDING:
@@ -60,28 +59,43 @@ const StudentTable = (props) => {
         break;
       case FILTER_OPTIONS.DEFAULT:
       default:
-        console.log("studentTable" , studentTable)
+        console.log("studentTable", studentTable);
         return sortedStudentData;
     }
     return sortedStudentData;
   };
-  const value = sortedStudent(studentTable ,sortOption );
-  const editStudentEle = (id) =>{
-    const editEle = value.find((student) => student.id === id  )
-    console.log(editEle)
-    setEditingStudent(editEle)
-  }
-  // const changeFormMode = () => {}
+  const value = sortedStudent(studentTable, sortOption);
+  const editStudentEle = (id) => {
+    const editEle = value.find((student) => student.id === id);
+    console.log(editEle);
+    setEditingStudent(editEle);
+  };
+  const updatingStudent = (addNewStudent) => {
+    const updatingStudentIndex = value.findIndex(
+      (student) => student.id === addNewStudent.id
+    );
+    const clonedStudentEle = [...value];
+    clonedStudentEle[updatingStudentIndex] = addNewStudent;
+    setStudentTable(updatingStudentIndex);
+  };
   const studentList =
-  value &&
-  value.map((student, index) => (
-      <StudentRow {...student} index={index} deleteStudentEle={deleteStudent} editStudentEle={editStudentEle}   />
+    value &&
+    value.map((student, index) => (
+      <StudentRow
+        {...student}
+        index={index}
+        deleteStudentEle={deleteStudent}
+        editStudentEle={editStudentEle}
+      />
     ));
-
 
   return (
     <div className="student-table">
-      <AddNewStudent newStudent={newStudentData} editStudentEle={editingStudent} />
+      <AddNewStudent
+        newStudent={newStudentData}
+        editStudentEle={editingStudent}
+        updatingStudent={updatingStudent}
+      />
       <div className="sort-container">
         <select
           className="form-select"

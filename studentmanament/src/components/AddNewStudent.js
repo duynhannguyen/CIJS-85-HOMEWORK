@@ -10,9 +10,9 @@ const defaultValue = {
   phy: "",
 };
 const AddNewStudent = (props) => {
-  const { newStudent, editStudentEle } = props;
+  const { newStudent, editStudentEle, updatingStudent } = props;
   const [addNewStudent, setAddNewStudent] = useState(defaultValue);
-  const [formMode, setFormMode] = useState("");
+  const [formMode, setFormMode] = useState("add");
   useEffect(() => {
     const hasEditValue =
       editStudentEle.studentName &&
@@ -20,11 +20,11 @@ const AddNewStudent = (props) => {
       editStudentEle.math &&
       editStudentEle.chem &&
       editStudentEle.phy;
-      if(hasEditValue){
-        setFormMode("Edit")
-        setAddNewStudent({...editStudentEle})
-      }
-  },[editStudentEle] );
+    if (hasEditValue) {
+      setFormMode("Edit");
+      setAddNewStudent({ ...editStudentEle });
+    }
+  }, [editStudentEle]);
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
     setAddNewStudent({
@@ -34,12 +34,15 @@ const AddNewStudent = (props) => {
   };
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    newStudent(addNewStudent);
-    setAddNewStudent(defaultValue);
+    if (formMode === "add") {
+      setAddNewStudent(defaultValue);
+      newStudent(addNewStudent);
+    } else {
+      setAddNewStudent(editStudentEle);
+      updatingStudent(addNewStudent);
+    }
   };
-  const updateStudentEle = (editStudentEle) => {
-    setAddNewStudent(editStudentEle);
-  };
+
   return (
     <form className="row g-3" onSubmit={onSubmitHandler}>
       <div className="col-md-4">
