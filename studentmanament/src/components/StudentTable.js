@@ -66,17 +66,17 @@ const StudentTable = (props) => {
   };
   const value = sortedStudent(studentTable, sortOption);
   const editStudentEle = (id) => {
-    const editEle = value.find((student) => student.id === id);
+    const editEle = studentTable.find((student) => student.id === id);
     console.log(editEle);
     setEditingStudent(editEle);
   };
   const updatingStudent = (addNewStudent) => {
-    const updatingStudentIndex = value.findIndex(
+    const updatingStudentIndex = studentTable.findIndex(
       (student) => student.id === addNewStudent.id
     );
-    const clonedStudentEle = [...value];
+    const clonedStudentEle = [...studentTable];
     clonedStudentEle[updatingStudentIndex] = addNewStudent;
-    setStudentTable(updatingStudentIndex);
+    setStudentTable(clonedStudentEle);
   };
   const studentList =
     value &&

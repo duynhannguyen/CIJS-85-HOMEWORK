@@ -12,7 +12,7 @@ const StudentRow  = (props) => {
       <td>{chem}</td>
       <td>{gpa}</td> 
       <td> <button className="btn btn-danger" onClick={ () => deleteStudentEle(id)} >Xóa</button></td>
-      <td> <button className="btn btn-success" onClick={ () => editStudentEle(id)}  >Cập nhật</button></td>
+      <td> <button className="btn btn-success" onClick={ () => editStudentEle(id)}  >Chỉnh sửa</button></td>
     </tr>
     )
 }

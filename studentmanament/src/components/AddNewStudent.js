@@ -23,6 +23,9 @@ const AddNewStudent = (props) => {
     if (hasEditValue) {
       setFormMode("Edit");
       setAddNewStudent({ ...editStudentEle });
+    }else{
+      setFormMode("add");
+      setAddNewStudent(defaultValue);
     }
   }, [editStudentEle]);
   const onChangeHandler = (e) => {
@@ -40,6 +43,8 @@ const AddNewStudent = (props) => {
     } else {
       setAddNewStudent(editStudentEle);
       updatingStudent(addNewStudent);
+      setFormMode("add")
+      setAddNewStudent(defaultValue);
     }
   };
 
