@@ -40,8 +40,10 @@ function App() {
     setTodoList(SaveNewTask);
   };
   const DeleteEle = (id) => {
-    const filterdTaskList = todoList.filter((task) => task.id !== id); 
+    const filterdTaskList = todoList.filter((task) => task.id !== id);
     setTodoList(filterdTaskList);
+    const StrDeleteTaskList = JSON.stringify(filterdTaskList);
+    localStorage.setItem("TaskTitle", StrDeleteTaskList);
   };
   const [EditTaskEle, setEditTaskEle] = useState("");
   const EditEle = (id) => {
