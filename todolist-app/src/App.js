@@ -32,6 +32,7 @@ function App() {
   ];
   const GetTaskTitle = JSON.parse(localStorage.getItem("TaskTitle"));
   const [todoList, setTodoList] = useState(GetTaskTitle ?? []);
+  const [EditTaskEle, setEditTaskEle] = useState("");
 
   const onAddNewTaskHandler = (NewTask) => {
     const SaveNewTask = [...todoList, NewTask];
@@ -45,7 +46,6 @@ function App() {
     const StrDeleteTaskList = JSON.stringify(filterdTaskList);
     localStorage.setItem("TaskTitle", StrDeleteTaskList);
   };
-  const [EditTaskEle, setEditTaskEle] = useState("");
   const EditEle = (id) => {
     const filterEditTaskList = todoList.find((editTask) => editTask.id === id);
     setEditTaskEle(filterEditTaskList);
@@ -55,6 +55,12 @@ function App() {
     // const a = localStorage.getItem('id')
     // console.log(a);
   };
+  const onChecked = (id) => {
+    const findCheckedTask = todoList.find(
+      (checkedTask) => checkedTask.id === id
+    );
+    console.log(findCheckedTask);
+  };
   return (
     <div className="App">
       <div className="wrapper">
@@ -62,7 +68,12 @@ function App() {
           onAddNewTask={onAddNewTaskHandler}
           EditTaskEle={EditTaskEle}
         />
-        <TodolList data={todoList} DeleteId={DeleteEle} EditId={EditEle} />
+        <TodolList
+          data={todoList}
+          DeleteId={DeleteEle}
+          EditId={EditEle}
+          onChecked={onChecked}
+        />
         {/* <DeleteAllTask Delete = {onDeleteTaskHandler}/> */}
         {/* <button className="delete-btn" onClick={onDeleteTaskHandler}>Delete All </button> */}
       </div>
