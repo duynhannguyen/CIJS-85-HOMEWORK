@@ -50,17 +50,35 @@ function App() {
     const filterEditTaskList = todoList.find((editTask) => editTask.id === id);
     setEditTaskEle(filterEditTaskList);
     console.log(EditTaskEle);
-    // const AfterDetele = filterEditTaskList;
-    // setTodoList(filterEditTaskList);
-    // const a = localStorage.getItem('id')
-    // console.log(a);
   };
   const onChecked = (id) => {
-    const findCheckedTask = todoList.find(
+    const findCheckedTask = todoList.findIndex(
       (checkedTask) => checkedTask.id === id
     );
-    console.log(findCheckedTask);
+    
+    
+    // const checkedTask = {...findCheckedTask, isCompleted: true}
+    // const updatingChecked = [...todoList, checkedTask]
+    // console.log(updatingChecked)
+      // setTodoList(checkedTask);
+
   };
+  // const onChecked = (id) => {
+  //   const findCheckedTask = todoList.find(
+  //     (checkedTask) => checkedTask.id === id
+  //   );
+  //   // console.log("checked", findCheckedTask)
+    
+  //   const updatingCheckedTask = todoList.map((task) => {
+  //     if(task.id === findCheckedTask.id ){
+  //       return {...findCheckedTask, isCompleted: !findCheckedTask.isCompleted}
+  //     }
+  //     else return todoList
+  //   })
+  //   console.log(updatingCheckedTask)
+  //   // setTodoList(updatingCheckedTask);
+
+  // };
   return (
     <div className="App">
       <div className="wrapper">

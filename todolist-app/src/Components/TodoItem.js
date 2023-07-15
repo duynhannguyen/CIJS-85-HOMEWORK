@@ -17,7 +17,7 @@ const TodoItem = (props) => {
             className="check-box"
             type="checkbox"
             checked={isCompleted}
-            onClick={() => onChecked(id)}
+            onChange={() => onChecked(id)}
           ></input>
         </div>
         <div className="trash-can-wrapper">
