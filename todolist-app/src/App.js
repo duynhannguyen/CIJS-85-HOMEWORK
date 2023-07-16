@@ -33,7 +33,6 @@ function App() {
   const GetTaskTitle = JSON.parse(localStorage.getItem("TaskTitle"));
   const [todoList, setTodoList] = useState(GetTaskTitle ?? []);
   const [EditTaskEle, setEditTaskEle] = useState("");
-  const [check , setCheck] = useState({})
   const onAddNewTaskHandler = (NewTask) => {
     const SaveNewTask = [...todoList, NewTask];
     const StrSaveNewTask = JSON.stringify(SaveNewTask);
@@ -52,18 +51,18 @@ function App() {
     // console.log(EditTaskEle);
   };
   const onChecked = (id) => {
-    const findClickTask = todoList.find((task) => task.id === id )
-    console.log("findClickTask" , findClickTask);
-    setCheck(findClickTask);
-    console.log("a", check)
+    const updatingChecked = todoList.map((task) => task.id === id ? {...task, isCompleted: !task.isCompleted} : task )
+    setTodoList(updatingChecked);
   };
   return (
     <div className="App">
       <div className="wrapper">
+        
         <SearchInput
           onAddNewTask={onAddNewTaskHandler}
           EditTaskEle={EditTaskEle}
         />
+        
         <TodolList
           data={todoList}
           DeleteId={DeleteEle}

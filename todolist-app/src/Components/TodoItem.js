@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import TodolList from "./TodoList";
 const TodoItem = (props) => {
   const { id, TaskTitle, isCompleted, DeleteId, EditId, onChecked } = props;
   // const [DeleteTodo, setDeleteTodoEle] = useState("");
@@ -12,7 +12,7 @@ const TodoItem = (props) => {
     <div id={id} className="todoitem">
       {TaskTitle}
       <p className="tool">
-        <div className="check-wrapper">
+        <div className={`${isCompleted === false ? "check-wrapper" : "check-wrapper-complete"}`}>
           <input
             className="check-box"
             type="checkbox"

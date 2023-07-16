@@ -54,30 +54,29 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 .tool {
   display: flex;
-  align-items: center;
   gap: 20px;
-  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
 }
 .check-box {
-  /* margin: 0;
-  padding: 0; */
-  /* background-color: inherit; */
+  align-items: center;
 }
 #trash-can {
-  /* height: 13px;
-  width: 13px; */
-  /* margin: 3px; */
-  font-size: 13px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
   cursor: pointer;
 }
 #edit {
-  /* height: 13px;
-width: 13px; */
-  /* margin: 3px; */
-  font-size: 13px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
   cursor: pointer;
 
 }
@@ -86,6 +85,9 @@ width: 13px; */
   /* position: relative; */
   /* padding: 5px; */
   /* margin-right: 20px; */
+}
+.check-wrapper-complete {
+  text-decoration: line-through;
 }
 .trash-can-wrapper {
   /* position: relative; */
