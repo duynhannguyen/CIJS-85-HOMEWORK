@@ -139,3 +139,45 @@ p {
     border-radius: 5px;
   }
 } */
+.student-status{
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 20px;
+}
+.status-all{
+padding: 15px 5px;
+border: 1px soild black;
+background-color: blanchedalmond;
+height: auto;
+width: 100px;
+border-radius: 20px;
+cursor: pointer;
+}
+.status-all:hover{
+  opacity: 0.8;
+}
+.status-complete{
+padding: 15px 5px;
+border: 1px soild black;
+background-color: blanchedalmond;
+height: auto;
+width: 100px;
+border-radius: 20px;
+cursor: pointer;
+}
+.status-complete:hover{
+  opacity: 0.8;
+}
+.status-uncomplete{
+padding: 15px 5px;
+border: 1px soild black;
+background-color: blanchedalmond;
+height: auto;
+width: 100px;
+border-radius: 20px;
+cursor: pointer;
+}
+.status-uncomplete:hover{
+  opacity: 0.8;
+}

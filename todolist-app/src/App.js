@@ -3,6 +3,7 @@ import "./App.css";
 import SearchInput from "./Components/SearchInput";
 import TodolList from "./Components/TodoList";
 import DeleteAllTask from "./Components/DeleteAllTask";
+import TaskFilter from "./Components/TaskFilter" 
 function App() {
   const TaskData = [
     // {
@@ -54,6 +55,7 @@ function App() {
     const updatingChecked = todoList.map((task) => task.id === id ? {...task, isCompleted: !task.isCompleted} : task )
     setTodoList(updatingChecked);
   };
+  
   return (
     <div className="App">
       <div className="wrapper">
@@ -62,7 +64,7 @@ function App() {
           onAddNewTask={onAddNewTaskHandler}
           EditTaskEle={EditTaskEle}
         />
-        
+        <TaskFilter />
         <TodolList
           data={todoList}
           DeleteId={DeleteEle}
