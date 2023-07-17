@@ -54,7 +54,6 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 .tool {
   display: flex;
@@ -62,7 +61,6 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
-  
 }
 .check-box {
   align-items: center;
@@ -78,7 +76,6 @@ p {
   place-items: center;
   font-size: 12px;
   cursor: pointer;
-
 }
 
 .check-wrapper {
@@ -139,45 +136,45 @@ p {
     border-radius: 5px;
   }
 } */
-.student-status{
+.student-status {
   display: flex;
   justify-content: center;
   gap: 60px;
   margin-bottom: 20px;
 }
-.status-all{
-padding: 15px 5px;
-border: 1px soild black;
-background-color: blanchedalmond;
-height: auto;
-width: 100px;
-border-radius: 20px;
-cursor: pointer;
+.status-all {
+  padding: 15px 5px;
+  border: 1px soild black;
+  background-color: blanchedalmond;
+  height: auto;
+  width: 100px;
+  border-radius: 20px;
+  border-style: none;
 }
-.status-all:hover{
+.status-all:hover {
   opacity: 0.8;
 }
-.status-complete{
-padding: 15px 5px;
-border: 1px soild black;
-background-color: blanchedalmond;
-height: auto;
-width: 100px;
-border-radius: 20px;
-cursor: pointer;
+.status-complete {
+  padding: 15px 5px;
+  border: 1px soild black;
+  background-color: blanchedalmond;
+  height: auto;
+  width: 100px;
+  border-radius: 20px;
+  border-style: none;
 }
-.status-complete:hover{
+.status-complete:hover {
   opacity: 0.8;
 }
-.status-uncomplete{
-padding: 15px 5px;
-border: 1px soild black;
-background-color: blanchedalmond;
-height: auto;
-width: 100px;
-border-radius: 20px;
-cursor: pointer;
+.status-uncomplete {
+  padding: 15px 5px;
+  border: 1px soild black;
+  background-color: blanchedalmond;
+  height: auto;
+  width: 100px;
+  border-radius: 20px;
+  border-style: none;
 }
-.status-uncomplete:hover{
+.status-uncomplete:hover {
   opacity: 0.8;
 }

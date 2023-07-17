@@ -26,6 +26,7 @@ const SearchInput = (props) => {
         size="70"
         value={NewTaskTitle}
         onChange={onChangeHandler}
+        required
       ></input>
       <button type="submit" className="btn-add">
         Add

@@ -3,7 +3,8 @@ import "./App.css";
 import SearchInput from "./Components/SearchInput";
 import TodolList from "./Components/TodoList";
 import DeleteAllTask from "./Components/DeleteAllTask";
-import TaskFilter from "./Components/TaskFilter" 
+import TaskFilter from "./Components/TaskFilter";
+import { FILTER_TASK_OPTION } from "./Constant/Constant";
 function App() {
   const TaskData = [
     // {
@@ -34,6 +35,7 @@ function App() {
   const GetTaskTitle = JSON.parse(localStorage.getItem("TaskTitle"));
   const [todoList, setTodoList] = useState(GetTaskTitle ?? []);
   const [EditTaskEle, setEditTaskEle] = useState("");
+  const [filterOption, setFilterOption] = useState(FILTER_TASK_OPTION.ALL);
   const onAddNewTaskHandler = (NewTask) => {
     const SaveNewTask = [...todoList, NewTask];
     const StrSaveNewTask = JSON.stringify(SaveNewTask);
@@ -52,19 +54,41 @@ function App() {
     // console.log(EditTaskEle);
   };
   const onChecked = (id) => {
-    const updatingChecked = todoList.map((task) => task.id === id ? {...task, isCompleted: !task.isCompleted} : task )
+    const updatingChecked = todoList.map((task) =>
+      task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
+    );
     setTodoList(updatingChecked);
   };
-  
+  const sortOption = () => {
+    setFilterOption(filterOption);
+  };
+  const sortTaskHandler = (filterOption, todoList) => {
+    let sortList = [...todoList];
+    switch (+filterOption) {
+      case FILTER_TASK_OPTION.COMPLETE:
+        sortList = sortList.sort(
+          (task) => (task.isCompleted = !task.isCompleted)
+        );
+        // console.log(sortList);
+        return sortList;
+      case FILTER_TASK_OPTION.ALL:
+        sortList = sortList.sort(
+          (task) => (task.isCompleted = task.isCompleted)
+        );
+        // console.log(sortList);
+        return sortList;
+    }
+  };
+  const updatingFilter = sortTaskHandler(filterOption, todoList);
+  console.log(updatingFilter);
   return (
     <div className="App">
       <div className="wrapper">
-        
         <SearchInput
           onAddNewTask={onAddNewTaskHandler}
           EditTaskEle={EditTaskEle}
         />
-        <TaskFilter />
+        <TaskFilter sortOption={sortOption} />
         <TodolList
           data={todoList}
           DeleteId={DeleteEle}
