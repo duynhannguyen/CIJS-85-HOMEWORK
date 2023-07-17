@@ -19,7 +19,6 @@ const StudentTable = (props) => {
     setStudentTable(filterDeleteStudent);
   };
   const gpaStudent = (studentTable) =>
-    // console.log(
     (
       (Number(studentTable.math) +
         Number(studentTable.chem) +
